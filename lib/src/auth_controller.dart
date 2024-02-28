@@ -115,8 +115,7 @@ class FirebasePhoneAuthController extends ChangeNotifier {
   bool get isOtpExpired => !(_otpExpirationTimer?.isActive ?? false);
 
   /// Whether the otp retrieval timer is active or not.
-  bool get isListeningForOtpAutoRetrieve =>
-      _otpAutoRetrievalTimer?.isActive ?? false;
+  bool get isListeningForOtpAutoRetrieve => _otpAutoRetrievalTimer?.isActive ?? false;
 
   /// {@macro autoRetrievalTimeOutDuration}
   static Duration _autoRetrievalTimeOutDuration = kAutoRetrievalTimeOutDuration;
@@ -135,8 +134,7 @@ class FirebasePhoneAuthController extends ChangeNotifier {
   /// Also, [_onLoginFailed] is called with [FirebaseAuthException]
   /// object to handle the error.
   Future<bool> verifyOtp(String otp) async {
-    if ((!kIsWeb && _verificationId == null) ||
-        (kIsWeb && _webConfirmationResult == null)) return false;
+    if ((!kIsWeb && _verificationId == null) || (kIsWeb && _webConfirmationResult == null)) return false;
 
     try {
       if (kIsWeb) {

@@ -11,7 +11,7 @@ part 'auth_controller.dart';
 
 class FirebasePhoneAuthHandler extends StatefulWidget {
   const FirebasePhoneAuthHandler({
-    Key? key,
+    super.key,
     required this.phoneNumber,
     required this.builder,
     this.onLoginSuccess,
@@ -21,12 +21,10 @@ class FirebasePhoneAuthHandler extends StatefulWidget {
     this.signOutOnSuccessfulVerification = false,
     this.sendOtpOnInitialize = true,
     this.linkWithExistingUser = false,
-    this.autoRetrievalTimeOutDuration =
-        FirebasePhoneAuthController.kAutoRetrievalTimeOutDuration,
-    this.otpExpirationDuration =
-        FirebasePhoneAuthController.kAutoRetrievalTimeOutDuration,
+    this.autoRetrievalTimeOutDuration = FirebasePhoneAuthController.kAutoRetrievalTimeOutDuration,
+    this.otpExpirationDuration = FirebasePhoneAuthController.kAutoRetrievalTimeOutDuration,
     this.recaptchaVerifierForWebProvider,
-  }) : super(key: key);
+  });
 
   /// {@template phoneNumber}
   ///
@@ -171,13 +169,11 @@ class FirebasePhoneAuthHandler extends StatefulWidget {
   /// Signs out the current user.
   ///
   /// {@endtemplate}
-  static Future<void> signOut(BuildContext context) =>
-      FirebasePhoneAuthController._of(context, listen: false).signOut();
+  static Future<void> signOut(BuildContext context) => FirebasePhoneAuthController._of(context, listen: false).signOut();
 
   @override
   // ignore: library_private_types_in_public_api
-  _FirebasePhoneAuthHandlerState createState() =>
-      _FirebasePhoneAuthHandlerState();
+  _FirebasePhoneAuthHandlerState createState() => _FirebasePhoneAuthHandlerState();
 }
 
 class _FirebasePhoneAuthHandlerState extends State<FirebasePhoneAuthHandler> {
