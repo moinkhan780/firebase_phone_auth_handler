@@ -217,7 +217,7 @@ class FirebasePhoneAuthController extends ChangeNotifier {
       if (kIsWeb) {
         _webConfirmationResult = await _auth.signInWithPhoneNumber(
           _phoneNumber!,
-          _recaptchaVerifierForWeb,
+          // _recaptchaVerifierForWeb,
         );
         codeSent = true;
         _onCodeSent?.call();
